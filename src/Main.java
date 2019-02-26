@@ -1,32 +1,41 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("How Many Numbers");
+        int count = scanner.nextInt();
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int x = 0; x < count; x++) {
+            System.out.println("Enter a number");
+            numbers.add(scanner.nextInt());
+        }
+
+        System.out.println(numbers);
+
         System.out.println("Enter a parameter ('+','-','*','/'");
         String input = scanner.next();
 
-        //Random random = new Random();
-        System.out.println("Enter a number");
-        int randomNumber = scanner.nextInt();
-        System.out.println("Enter another number");
-        int randomNumberTwo = scanner.nextInt();
-        System.out.println(randomNumber);
-        System.out.println(randomNumberTwo);
         switch (input) {
             case "+":
-                System.out.println(randomNumber + randomNumberTwo);
+                Calculate add = new Add();
+                System.out.println(add.calculate(numbers));
                 break;
             case "-":
-                System.out.println(randomNumber - randomNumberTwo);
+                Calculate minus = new Minus();
+                System.out.println(minus.calculate(numbers));
                 break;
             case "*":
-                System.out.println(randomNumber * randomNumberTwo);
+                Calculate multiply = new Multiply();
+                System.out.println(multiply.calculate(numbers));
                 break;
             case "/":
-                System.out.println(randomNumber / randomNumberTwo);
+                Calculate divide = new Divide();
+                System.out.println(divide.calculate(numbers));
                 break;
             default:
                 System.out.println("Error. Invalid Operator.");
