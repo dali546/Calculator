@@ -6,19 +6,22 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("How Many Numbers");
-        int count = scanner.nextInt();
-        List<Integer> numbers = new ArrayList<>();
+        System.out.println("Enter a parameter ('+','-','*','/'");
+        String input = scanner.next();
 
-        for (int x = 0; x < count; x++) {
+        List<Integer> numbers = new ArrayList<>();
+        boolean end = false;
+        while (!end) {
             System.out.println("Enter a number");
-            numbers.add(scanner.nextInt());
+            String x = scanner.next();
+            if (!x.equals("done")) {
+                numbers.add(Integer.valueOf(x));
+            } else {
+                end = true;
+            }
         }
 
         System.out.println(numbers);
-
-        System.out.println("Enter a parameter ('+','-','*','/'");
-        String input = scanner.next();
 
         switch (input) {
             case "+":
@@ -43,3 +46,4 @@ public class Main {
         }
     }
 }
+
